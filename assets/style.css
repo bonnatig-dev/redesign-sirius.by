@@ -34,23 +34,36 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 .link{color:var(--link);font-weight:600;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .16s}
 .link:hover{border-color:currentColor}
 
-/* header */
+/* header — two bars like sirius.by, dark «Под краном» */
 .hdr{position:sticky;top:0;z-index:20;background:rgba(18,20,23,.97);border-bottom:1px solid var(--line)}
-.hdr__in{max-width:var(--max);margin:auto;padding:12px var(--pad);display:flex;align-items:center;gap:32px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand__mark{width:26px;height:26px;flex:none}
-.brand__word{font:800 1.3125rem/1 var(--f-d);letter-spacing:.01em}
-.nav{margin-left:auto}.nav ul{display:flex;gap:28px}
+.hdr__top{border-bottom:1px solid var(--line);background:#0e1013}
+.hdr__top-in{max-width:var(--max);margin:auto;padding:8px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hdr__callback{font:600 .875rem/1.3 var(--f-t);color:var(--link);text-decoration:none;border-bottom:1px solid transparent;white-space:nowrap}
+.hdr__callback:hover{border-color:currentColor}
+.hdr__phones{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0;font:500 .8125rem/1.35 var(--f-m);font-variant-numeric:tabular-nums}
+.hdr__phones a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:28px}
+.hdr__phones a:hover{color:var(--link)}
+.hdr__bottom-in{max-width:var(--max);margin:auto;padding:10px var(--pad);display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand__logo{display:block;height:52px;width:auto}
+.nav{margin-left:auto}.nav ul{display:flex;gap:22px}
 .nav a{text-decoration:none;color:var(--dim);font-size:.9375rem;transition:color .16s;display:inline-flex;align-items:center;min-height:44px;padding:0 2px}.nav a:hover{color:var(--ink)}
-.hdr__tel{display:flex;flex-direction:column;font:500 .875rem/1.35 var(--f-m);font-variant-numeric:tabular-nums}
-.hdr__tel a{text-decoration:none;min-height:24px;display:flex;align-items:center}
+.hdr__tools{display:flex;align-items:center;gap:16px;flex:none}
+.lang{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;font:700 .75rem/1 var(--f-m);letter-spacing:.04em}
+.lang a{padding:10px 12px;text-decoration:none;color:var(--dim);min-height:36px;display:inline-flex;align-items:center}
+.lang a:hover{color:var(--ink);background:var(--bg-2)}
+.lang a.is-active{background:var(--brand);color:#fff}
+.wish{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:3px}
+.wish:hover{background:var(--bg-2);border-color:#5a616a}
+.wish__badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--act);color:#fff;font:700 10px/16px var(--f-m);text-align:center}
 .mnav{display:none;position:relative;margin-left:auto}
 .mnav summary{list-style:none;cursor:pointer;font:600 .9375rem/1 var(--f-t);padding:10px 12px;border:1px solid var(--line);border-radius:3px;min-height:42px;display:flex;align-items:center}
 .mnav summary::-webkit-details-marker{display:none}
 .mnav[open] summary{border-color:#5a616a}
-.mnav ul{position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:var(--bg-2);border:1px solid var(--line);border-radius:3px;padding:8px 0;z-index:30}
+.mnav ul{position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:var(--bg-2);border:1px solid var(--line);border-radius:3px;padding:8px 0;z-index:50}
 .mnav a{display:block;padding:12px 18px;text-decoration:none;color:var(--ink);font-weight:500}
 .mnav a:hover{background:#1f2328}
+.mnav{z-index:50}
 
 /* hero — exhibit in dark hall */
 .hero{border-bottom:1px solid var(--line);overflow:hidden;min-height:min(880px,calc(100svh - 66px))}
@@ -168,7 +181,8 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 /* —— adapt: tablet / narrow desktop —— */
 @media (max-width:1100px){
   .nav{display:none}
-  .mnav{display:block}
+  .hdr__price{display:none}
+  .mnav{display:block;margin-left:12px}
   .svc__grid,.req__grid{grid-template-columns:1fr;gap:var(--space-6)}
   .yard{grid-template-columns:1fr;min-height:0}
   .yard__ph{min-height:min(42vw,420px)}
@@ -184,9 +198,13 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 @media (max-width:700px){
   body{font-size:1rem;letter-spacing:.012em;padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
   .hdr{padding-top:env(safe-area-inset-top,0px)}
-  .hdr__in{padding:10px var(--pad);gap:16px}
-  .hdr__tel,.hdr .btn{display:none}
-  .brand__word{font-size:1.125rem}
+  .hdr__top-in{padding:8px var(--pad);gap:10px}
+  .hdr__callback{font-size:.8125rem}
+  .hdr__phones{gap:2px 14px;font-size:.75rem;width:100%;order:2}
+  .hdr__bottom-in{padding:8px var(--pad);gap:12px}
+  .brand__logo{height:44px}
+  .hdr__tools .lang,.hdr__tools .hdr__price{display:none}
+  .wish{width:40px;height:40px}
   .mnav summary{min-width:44px;min-height:44px;padding:0 14px;justify-content:center}
   .mnav ul{right:0;left:auto;max-height:min(70vh,480px);overflow:auto;box-shadow:0 16px 40px rgba(0,0,0,.45)}
   .mnav a{min-height:48px;display:flex;align-items:center;padding:0 18px;font-size:1.0625rem}
