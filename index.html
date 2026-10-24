@@ -46,7 +46,7 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
 <!-- WP: block acf/hero -->
 <section class="hero" aria-labelledby="hero-title">
@@ -211,11 +211,11 @@
   <div class="wrap req__grid">
     <div class="req__intro">
       <h2 id="req-title">Пришлите список — <b>ответим с ценой</b></h2>
-      <p class="req__note">Демо-форма прототипа: данные никуда не отправляются. На сайте её заменит форма WordPress.</p>
+      <p class="req__note" id="req-demo-note">Демо-форма прототипа: данные никуда не отправляются. На сайте её заменит форма WordPress.</p>
     </div>
-    <form class="form" novalidate>
-      <div class="field"><label for="f-name">Имя или компания</label><input id="f-name" name="name" autocomplete="organization" required></div>
-      <div class="field"><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></div>
+    <form class="form" novalidate aria-describedby="req-demo-note">
+      <div class="field"><label for="f-name">Имя или компания <span class="req-mark" aria-hidden="true">*</span><span class="visually-hidden"> (обязательно)</span></label><input id="f-name" name="name" autocomplete="organization" required aria-required="true"></div>
+      <div class="field"><label for="f-tel">Телефон <span class="req-mark" aria-hidden="true">*</span><span class="visually-hidden"> (обязательно)</span></label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true"></div>
       <div class="field field--wide"><label for="f-msg">Что нужно</label><textarea id="f-msg" name="msg" rows="4" aria-describedby="f-msg-hint"></textarea><span id="f-msg-hint" class="hint">Позиция, размер, количество</span></div>
       <div class="field field--wide form__end"><button class="btn" type="submit">Запросить счёт</button><p class="form__status" role="status" aria-live="polite"></p></div>
     </form>
