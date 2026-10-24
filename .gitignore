@@ -1,2 +1,4 @@
 .grok/
 .tools/
+.cursor/
+qa/

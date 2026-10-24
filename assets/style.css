@@ -34,29 +34,36 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 .link{color:var(--link);font-weight:600;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .16s}
 .link:hover{border-color:currentColor}
 
-/* header — UX hierarchy: logo · nav · Прайс / звонок / список · phones grouped */
-.hdr{position:sticky;top:0;z-index:20;background:rgba(18,20,23,.98);border-bottom:1px solid var(--line)}
-.hdr__bar-in{max-width:var(--max);margin:auto;padding:12px var(--pad);display:flex;align-items:center;gap:28px;position:relative}
+/* header — single row: logo · nav · phones · actions */
+.hdr{position:sticky;top:0;z-index:20;background:rgba(18,20,23,.98);border-bottom:1px solid var(--line);backdrop-filter:saturate(1.1) blur(8px)}
+.hdr__bar-in{max-width:var(--max);margin:auto;padding:10px var(--pad);display:flex;align-items:center;gap:18px;position:relative}
 .brand{display:flex;align-items:center;text-decoration:none;flex:none}
-.brand__logo{display:block;height:48px;width:auto}
+.brand__logo{display:block;height:44px;width:auto}
 .nav{flex:1;min-width:0}
-.nav ul{display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:center}
-.nav a{text-decoration:none;color:var(--dim);font-size:.9375rem;font-weight:500;display:inline-flex;align-items:center;min-height:44px;padding:0 4px;border-bottom:2px solid transparent;transition:color .16s,border-color .16s}
+.nav ul{display:flex;flex-wrap:nowrap;gap:2px 14px;justify-content:center}
+.nav a{text-decoration:none;color:var(--dim);font-size:.875rem;font-weight:500;display:inline-flex;align-items:center;min-height:40px;padding:0 2px;border-bottom:2px solid transparent;transition:color .16s,border-color .16s;white-space:nowrap}
 .nav a:hover{color:var(--ink);border-bottom-color:var(--line)}
-.hdr__actions{display:flex;align-items:center;gap:12px;flex:none}
-.hdr__callback{font:600 .8125rem/1.2 var(--f-t);color:var(--link);text-decoration:none;padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:3px;white-space:nowrap}
+
+/* phones — compact 2×2 in the same bar */
+.hdr__phones{display:grid;grid-template-columns:auto auto;gap:2px 14px;flex:none;align-content:center}
+.hdr__phones a{font:500 .75rem/1.25 var(--f-m);font-variant-numeric:tabular-nums;color:var(--ink);text-decoration:none;white-space:nowrap;min-height:20px;display:inline-flex;align-items:center}
+.hdr__phones a:hover{color:var(--link)}
+.hdr__phones[title]{cursor:help}
+
+.hdr__actions{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+.hdr__callback{font:600 .75rem/1.2 var(--f-t);color:var(--link);text-decoration:none;padding:8px 10px;min-height:40px;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:3px;white-space:nowrap}
 .hdr__callback:hover{border-color:#3a4048;background:var(--bg-2)}
-.wish{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px 0 10px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:3px;font:600 .8125rem/1 var(--f-t)}
+.wish{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 10px 0 8px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:3px;font:600 .75rem/1 var(--f-t)}
 .wish:hover{background:var(--bg-2);border-color:#5a616a}
-.wish__badge{position:absolute;top:6px;left:26px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--act);color:#fff;font:700 10px/16px var(--f-m);text-align:center}
+.wish__badge{position:absolute;top:4px;left:22px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--act);color:#fff;font:700 10px/16px var(--f-m);text-align:center}
 .wish__lbl{color:var(--dim)}
-.lang{display:flex;align-items:center;gap:6px;font:700 .75rem/1 var(--f-m);letter-spacing:.04em;padding-left:4px}
-.lang a{color:var(--dim);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;padding:0 4px}
+.lang{display:flex;align-items:center;gap:4px;font:700 .6875rem/1 var(--f-m);letter-spacing:.04em;padding-left:2px}
+.lang a{color:var(--dim);text-decoration:none;min-height:40px;display:inline-flex;align-items:center;padding:0 3px}
 .lang a.is-active{color:var(--ink)}
 .lang a:hover{color:var(--ink)}
 .lang__sep{color:var(--line);user-select:none}
 .mnav{display:none;position:relative;z-index:5;flex:none}
-.mnav summary{list-style:none;cursor:pointer;font:600 .9375rem/1 var(--f-t);padding:0 14px;border:1px solid var(--line);border-radius:3px;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
+.mnav summary{list-style:none;cursor:pointer;font:600 .875rem/1 var(--f-t);padding:0 12px;border:1px solid var(--line);border-radius:3px;min-height:40px;min-width:40px;display:flex;align-items:center;justify-content:center}
 .mnav summary::-webkit-details-marker{display:none}
 .mnav[open] summary{border-color:#5a616a;background:var(--bg-2)}
 .mnav ul{position:absolute;right:0;top:calc(100% + 8px);min-width:260px;background:var(--bg-2);border:1px solid var(--line);border-radius:3px;padding:8px 0;z-index:50;box-shadow:0 16px 40px rgba(0,0,0,.45);max-height:min(75vh,560px);overflow:auto}
@@ -64,14 +71,7 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 .mnav a:hover{background:#1f2328}
 .mnav__phones{display:grid;gap:0;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:6px 0}
 .mnav__phones a{font:500 .875rem/1.2 var(--f-m);color:var(--dim);min-height:44px}
-
-.hdr__contact{border-top:1px solid var(--line);background:#0e1013;padding:12px var(--pad)}
-.hdr__contact-in{max-width:var(--max);margin:auto;padding:0;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.phone-group{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.phone-group__lbl{font:700 .6875rem/1 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-right:4px}
-.phone-group a{font:500 .875rem/1.3 var(--f-m);font-variant-numeric:tabular-nums;color:var(--ink);text-decoration:none;min-height:36px;display:inline-flex;align-items:center}
-.phone-group a:hover{color:var(--link)}
-.hdr__hours{margin-left:auto;color:var(--dim);font-size:.75rem}
+.mnav__hours{padding:10px 18px 6px;color:var(--dim);font-size:.75rem;line-height:1.4}
 
 /* hero — exhibit in dark hall */
 .hero{border-bottom:1px solid var(--line);overflow:hidden;min-height:min(880px,calc(100svh - 66px))}
@@ -97,11 +97,11 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 .show__item:first-child{border-left:1px solid var(--line)}
 .show__item--lead{grid-column:span 1;grid-auto-columns:inherit}
 .show__item--lead{width:clamp(320px,30vw,440px)}
-.show__item--lead .show__link img{height:260px}
+.show__item--lead .show__link img{height:220px}
 .show__link{display:flex;flex-direction:column;height:100%;min-height:340px;padding:28px 24px 28px;text-decoration:none;transition:background-color .2s var(--ease)}
-.show__link img{width:100%;height:190px;object-fit:contain;margin-bottom:28px;filter:brightness(.92) contrast(1.1) drop-shadow(0 24px 20px rgba(0,0,0,.65));transition:transform .3s var(--ease)}
+.show__link img{width:100%;height:190px;object-fit:cover;object-position:center;margin-bottom:20px;border-radius:2px;border:1px solid var(--line);filter:brightness(.95) contrast(1.05);transition:transform .3s var(--ease),filter .3s var(--ease)}
 .show__link:hover{background:var(--bg-2)}
-.show__link:hover img{transform:translateY(-6px)}
+.show__link:hover img{transform:translateY(-4px);filter:brightness(1.02) contrast(1.08)}
 .show__group{font:500 .75rem/1.3 var(--f-m);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .show__name{font:700 1.375rem/1.2 var(--f-d);letter-spacing:-.02em;margin:8px 0 20px}
 .show__more{margin-top:auto;color:var(--link);font-weight:600;font-size:.9375rem}
@@ -188,11 +188,20 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 
 
 /* —— adapt: tablet / narrow desktop —— */
+@media (max-width:1280px){
+  .hdr__callback{font-size:0;padding:8px;width:40px;justify-content:center}
+  .hdr__callback::before{content:"☎";font-size:1rem;line-height:1}
+  .wish__lbl{display:none}
+  .wish{padding:0;width:40px;justify-content:center}
+}
+@media (max-width:1180px){
+  .hdr__phones{display:none} /* phones via Меню / title */
+  .nav ul{gap:2px 10px}
+}
 @media (max-width:1100px){
   .nav{display:none}
-  .wish__lbl,.hdr__hours{display:none}
   .mnav{display:block}
-  .hdr__bar-in{gap:16px}
+  .hdr__bar-in{gap:12px}
   .hdr__actions{margin-left:auto;gap:8px}
   .svc__grid,.req__grid{grid-template-columns:1fr;gap:var(--space-6)}
   .yard{grid-template-columns:1fr;min-height:0}
@@ -209,7 +218,7 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
 @media (max-width:700px){
   body{font-size:1rem;letter-spacing:.012em;padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
   .hdr{padding-top:env(safe-area-inset-top,0px)}
-  .hdr__contact{display:none} /* phones via Меню + sticky Позвонить */
+  .hdr__phones{display:none}
   .hdr__bar-in{padding:10px var(--pad);gap:12px}
   .brand__logo{height:40px}
   .hdr__price,.hdr__callback{display:none} /* dock Call+Price; callback in Меню */
@@ -217,6 +226,7 @@ h3{font-family:var(--f-d);font-weight:700;letter-spacing:-.02em}
   .wish{padding:0;width:44px;justify-content:center}
   .wish__lbl{display:none}
   .wish__badge{left:auto;right:4px;top:4px}
+  .hdr__callback::before{content:none}
   .mnav summary{min-width:44px;min-height:44px;padding:0 14px}
   .mnav ul{right:0;left:auto;max-height:min(70vh,480px);overflow:auto;box-shadow:0 16px 40px rgba(0,0,0,.45)}
   .mnav a{min-height:48px;display:flex;align-items:center;padding:0 18px;font-size:1.0625rem}
